@@ -7,9 +7,9 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/mainsplash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/ashi.jpeg",
+      "backgroundColor": "black"
+    
     },
     "updates": {
       "fallbackToCacheTimeout": 0

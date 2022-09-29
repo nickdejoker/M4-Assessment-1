@@ -3,50 +3,40 @@ import React, { Component } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import Icon from 'react-native-ionicons'
 import Login from './src/Login'
-import Home from './src/Home'
-import Setting from './src/Settings'
-import User from './src/User'
-import MySettings from './src/Settings'
+import Onboard from './src/Onboard';
+import SignUp from './src/SignUp'
+import Dashboard from './src/Dashboard';
+import User from './src/User';
+import Pretoria from './src/Cities/Pretoria';
+import  Cape from './src/Cities/cape';
+import Jozi from './src/Cities/Jozi';
+import Port from './src/Cities/Port';
+import Durban from './src/Cities/Durban';
 
-const Tab = createBottomTabNavigator();
+
+
 
 const Stack = createNativeStackNavigator();
 export default class App extends Component {
   render() {
     return (
       <NavigationContainer>
-        <Tab.Navigator
-        initialRoutName={Home}
-        screenOptions={({ route }) => ({
-
-          tabBarIcon: ({ focused, color, size}) =>{
-          let iconName;
-          let rn= route.name;
-
-          if (rn===Home){
-            iconName = focused ? 'home' : 'home-outline'
-          } else  if (rn===User){
-            iconName = focused ? 'ios-list-box' : 'ios-list';
-          }
-          else  if (rn===MySettings){
-            iconName = focused ? 'settings' : 'settings-outline';
-          }
-          return 
-
-        },
-        })}
+        <Stack.Navigator screenOptions={{headerShown:false}}>
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Onboard" component={Onboard} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
+        <Stack.Screen  name="SignUp" component={SignUp}/>
+        <Stack.Screen  name="User" component={User}/>
+        <Stack.Screen  name="Pretoria" component={Pretoria}/>
+        <Stack.Screen  name="Jozi" component={Jozi}/>
+        <Stack.Screen  name="Cape" component={Cape}/>
+        <Stack.Screen  name="Port" component={Port}/>
+        <Stack.Screen  name="Durban" component={Durban}/>
    
-        >
-        <Tab.Screen  name="LogOut" component={Login} options={{headerShown:false, tabBarStyle: { display: "none" }}} />
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="User" component={User} />
-        <Tab.Screen  name="MySettings" component={MySettings}/>
-        </Tab.Navigator>
-      </NavigationContainer>
-    
+        </Stack.Navigator>
+      </NavigationContainer> 
     )
   }     
 }
